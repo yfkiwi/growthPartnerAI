@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { ReportType, ReportTypeOption } from '@/types';
+import Image from 'next/image';
 
 const reportTypes: ReportTypeOption[] = [
   {
@@ -63,10 +64,13 @@ export default function FeatureSelection() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Header */}
-      <div className="bg-gray-800 py-4">
+      <div className="bg-gray-900 py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-xl font-bold">Growth Partner AI</h1>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🚀</span>
+              <span className="text-xl font-bold">Growth Partner AI</span>
+            </div>
             <button
               onClick={handleBack}
               className="text-blue-400 hover:text-blue-300"
@@ -80,18 +84,12 @@ export default function FeatureSelection() {
       <div className="py-12">
         <div className="max-w-3xl mx-auto px-4">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold mb-4">
               What&apos;s your biggest question right now?
             </h2>
             <p className="text-lg text-gray-300 mb-6">
-              Select one option to help us understand your startup&apos;s current needs.
+              Select one option to get the highest-impact help for your startup right now.
             </p>
-            
-            {/* Show the user's idea */}
-            <div className="bg-gray-800 p-4 rounded-lg mb-8">
-              <p className="text-sm text-gray-400 mb-2">Your startup idea:</p>
-              <p className="text-gray-200 italic">&quot;{idea}&quot;</p>
-            </div>
           </div>
 
           <div className="space-y-4 mb-10">
@@ -137,7 +135,7 @@ export default function FeatureSelection() {
               onClick={handleContinue}
               className="bg-blue-600 text-white font-bold py-4 px-12 rounded-lg hover:bg-blue-700 transition-colors text-lg"
             >
-              Continue to Email Collection
+              Unlock My Startup Report
             </button>
           </div>
         </div>

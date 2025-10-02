@@ -4,6 +4,7 @@
 import { useRouter } from 'next/navigation';
 import { Submission } from '@/types';
 import PaymentSuccess from '@/app/components/PaymentSuccess';
+import Image from 'next/image';
 
 interface ReportByTokenClientProps {
   submission: Submission;
@@ -86,10 +87,13 @@ export default function ReportByTokenClient({ submission }: ReportByTokenClientP
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      <div className="bg-gray-800 py-4">
+      <div className="bg-gray-900 py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-xl font-bold">Growth Partner AI</h1>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🚀</span>
+              <span className="text-xl font-bold">Growth Partner AI</span>
+            </div>
             <button onClick={() => router.push('/')} className="text-blue-400 hover:text-blue-300">← Back to Home</button>
           </div>
         </div>

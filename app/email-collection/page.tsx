@@ -3,6 +3,7 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { CreateSubmissionRequest, ReportType } from '@/types';
+import Image from 'next/image';
 
 function EmailCollectionContent() {
   const [email, setEmail] = useState('');
@@ -97,10 +98,13 @@ function EmailCollectionContent() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Header */}
-      <div className="bg-gray-800 py-4">
+      <div className="bg-gray-900 py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-xl font-bold">Growth Partner AI</h1>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🚀</span>
+              <span className="text-xl font-bold">Growth Partner AI</span>
+            </div>
             <button
               onClick={handleBack}
               className="text-blue-400 hover:text-blue-300"
@@ -115,26 +119,11 @@ function EmailCollectionContent() {
         <div className="max-w-2xl mx-auto px-4">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
-              Almost there! Just need your email
+              Get your founder-ready report in 24h
             </h2>
             <p className="text-lg text-gray-300">
               We&apos;ll send your personalized report within 24 hours
             </p>
-          </div>
-
-          {/* Summary Card */}
-          <div className="bg-gray-800 p-6 rounded-lg mb-8">
-            <h3 className="text-lg font-bold mb-3">Your Request Summary</h3>
-            <div className="space-y-2 text-sm">
-              <div>
-                <span className="text-gray-400">Idea:</span>
-                <p className="text-gray-200 italic">&quot;{idea}&quot;</p>
-              </div>
-              <div>
-                <span className="text-gray-400">Report Type:</span>
-                <p className="text-gray-200">{getReportTypeTitle(reportType)}</p>
-              </div>
-            </div>
           </div>
 
           {/* Email Form */}
@@ -174,7 +163,7 @@ function EmailCollectionContent() {
             <div className="flex items-center justify-center space-x-6 text-sm text-gray-400">
               <div className="flex items-center">
                 <span className="mr-2">🔒</span>
-                <span>100% Private</span>
+                <span>100% Confidential</span>
               </div>
               <div className="flex items-center">
                 <span className="mr-2">⚡</span>

@@ -105,7 +105,10 @@ export default function AdminTestPage() {
             <div className="flex items-start justify-between">
               <div>
                 <div className="font-semibold">{s.email}</div>
-                <div className="text-gray-300 text-sm">{s.report_type} • {new Date(s.created_at).toLocaleString()}</div>
+                <div className="text-gray-300 text-sm mb-2">{s.report_type} • {new Date(s.created_at).toLocaleString()}</div>
+                <div className="text-gray-400 text-sm mb-2">
+                  <strong>Idea:</strong> {s.idea}
+                </div>
                 {s.full_report_url && (
                   <a href={s.full_report_url} target="_blank" rel="noreferrer" className="text-blue-400 text-sm underline mt-1 inline-block">Open full report</a>
                 )}
@@ -142,11 +145,12 @@ export default function AdminTestPage() {
               <div className="md:col-span-2 space-y-4">
                 <div>
                   <label className="block text-sm mb-2">Key Insight</label>
-                  <input
+                  <textarea
                     name="summary_key_insight"
                     defaultValue={s.summary_key_insight || ''}
-                    className="w-full bg-gray-700 border border-gray-600 rounded p-3 text-white"
+                    className="w-full bg-gray-700 border border-gray-600 rounded p-3 text-white min-h-[80px] resize-y"
                     placeholder="e.g., Strong market pull from SMBs"
+                    rows={3}
                   />
                 </div>
                 <div>
@@ -160,11 +164,12 @@ export default function AdminTestPage() {
                 </div>
                 <div>
                   <label className="block text-sm mb-2">Next Step</label>
-                  <input
+                  <textarea
                     name="summary_next_step"
                     defaultValue={s.summary_next_step || ''}
-                    className="w-full bg-gray-700 border border-gray-600 rounded p-3 text-white"
+                    className="w-full bg-gray-700 border border-gray-600 rounded p-3 text-white min-h-[80px] resize-y"
                     placeholder="e.g., Launch landing page test with 3 value props"
+                    rows={3}
                   />
                 </div>
               </div>

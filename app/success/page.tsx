@@ -19,11 +19,11 @@ export default function SuccessPage() {
           </div>
 
           <h1 className="text-3xl md:text-4xl font-extrabold mb-4">
-            Your Report is Being Generated! 🚀
+            Insights Are Loading...
           </h1>
           
           <p className="text-lg text-gray-300 mb-6">
-            You&apos;ll receive a notification within 24 hours with your personalized startup validation report.
+            We&apos;re analyzing your inputs and building a report designed for your startup. You&apos;ll get an email with your results in less than 24 hours. Stay tuned—it&apos;ll be worth the wait.
           </p>
 
           <div className="bg-blue-900/20 border border-blue-600 p-6 rounded-lg mb-8">
@@ -47,17 +47,10 @@ export default function SuccessPage() {
           <div className="space-y-4">
             <button
               onClick={handleStartOver}
-              className="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors mr-4"
+              className="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors"
             >
               Generate Another Report
             </button>
-            
-            <a
-              href="/pricing"
-              className="inline-block bg-gray-700 text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-600 transition-colors"
-            >
-              View Pricing
-            </a>
           </div>
 
           {/* Additional Info */}

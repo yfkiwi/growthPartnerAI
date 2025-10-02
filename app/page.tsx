@@ -2,6 +2,7 @@
 
 import { useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 
 function HomePageContent() {
   const [idea, setIdea] = useState('');
@@ -27,34 +28,46 @@ function HomePageContent() {
 
   return (
     <main className="min-h-screen bg-gray-900 text-white">
+      {/* Header with Logo */}
+      <div className="bg-gray-800 py-4">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🚀</span>
+              <span className="text-xl font-bold">Growth Partner AI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Hero Section */}
-      <section className="relative py-20 text-center">
+      <section className="relative pt-20 pb-20 text-center">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
-            Validate, Compare, and Build your Startup Idea in Minutes 🚀
+            Validate, Compare, and Build your Startup Idea in Minutes<span className="ml-2 text-3xl md:text-4xl">🚀</span>
           </h1>
           <p className="text-lg md:text-xl mb-8 text-gray-300">
             Turn your startup idea into investor-ready insights in 24h.
           </p>
           
           <div className="max-w-2xl mx-auto">
-            <div className="relative">
-              <input
-                type="text"
-                value={idea}
-                onChange={(e) => setIdea(e.target.value)}
-                className="w-full rounded-lg bg-white/20 px-4 py-4 pr-32 text-white placeholder-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none border border-gray-600"
-                placeholder="Uber for dog walking — an app that connects pet owners with trusted walkers nearby."
-              />
-              {/* bundle id helper for deep links */}
-              <input type="hidden" value={bundleId || ''} />
+            <textarea
+              value={idea}
+              onChange={(e) => setIdea(e.target.value)}
+              className="w-full min-h-[100px] rounded-lg bg-white/20 px-4 py-4 text-white placeholder-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none border border-gray-600 resize-none"
+              placeholder="Describe your business idea (e.g., Uber for dog walking — an app that connects pet owners with trusted walkers nearby.)"
+              rows={4}
+            />
+            <div className="flex justify-center mt-4">
               <button
                 onClick={handleSubmit}
-                className="absolute right-2 top-1/2 -translate-y-1/2 rounded bg-blue-600 px-6 py-3 font-bold text-white hover:bg-blue-700 transition-colors"
+                className="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors"
               >
                 Generate My Report
               </button>
             </div>
+            {/* bundle id helper for deep links */}
+            <input type="hidden" value={bundleId || ''} />
           </div>
         </div>
       </section>
@@ -67,8 +80,8 @@ function HomePageContent() {
               <div className="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🔒</span>
               </div>
-              <h3 className="text-xl font-bold mb-2">100% Private</h3>
-              <p className="text-gray-400">Your ideas are never shared or stored publicly</p>
+              <h3 className="text-xl font-bold mb-2">100% Confidential</h3>
+              <p className="text-gray-400">Only you can access your reports</p>
             </div>
             
             <div className="text-center">
@@ -84,7 +97,7 @@ function HomePageContent() {
                 <span className="text-2xl">👨‍💼</span>
               </div>
               <h3 className="text-xl font-bold mb-2">Founder-Focused</h3>
-              <p className="text-gray-400">Built by founders, for founders</p>
+              <p className="text-gray-400">Built by founders, tested with real startup journeys</p>
             </div>
           </div>
         </div>
@@ -166,7 +179,7 @@ function HomePageContent() {
       {/* Footer */}
       <footer className="py-8 bg-gray-900 border-t border-gray-800">
         <div className="container mx-auto px-4 text-center text-gray-400">
-          <p>&copy; 2024 Growth Partner AI. All rights reserved.</p>
+          <p>&copy; 2025 Growth Partner AI. All rights reserved.</p>
         </div>
       </footer>
     </main>

@@ -4,6 +4,7 @@
 import { useRouter } from 'next/navigation';
 import { Submission } from '@/types';
 import PaymentSuccess from '@/app/components/PaymentSuccess';
+import Image from 'next/image';
 
 interface ReportClientProps {
   submission: Submission;
@@ -75,6 +76,46 @@ export default function ReportClient({ submission }: ReportClientProps) {
     ];
   };
 
+  const getFullReportContent = (type: string) => {
+    const content = {
+      validation: [
+        'Demand signals tied to your idea',
+        'Industry-specific red flags',
+        'Custom experiments to run now',
+        'A week-by-week validation plan'
+      ],
+      competitor: [
+        'Profiles of 5-10 closest competitors',
+        'Feature & pricing comparisons',
+        'Market gaps ready to exploit',
+        'Differentiation strategy for your startup'
+      ],
+      mvp: [
+        'Must-have vs. distractions',
+        'MVP traps in your space',
+        'Lean launch plan with stack options',
+        'Timeline to validate cheaply'
+      ],
+      investor: [
+        'TAM, CAC, LTV, churn tailored to your model',
+        '10 must-answer investor questions',
+        'Proof points mapped to your traction',
+        'Pitch deck outline built for your concept'
+      ],
+      gtm: [
+        'Personas tailored to your target users',
+        'Acquisition channels ranked by ROI',
+        'Campaign templates to adapt',
+        'KPIs for 100 → 1,000 users'
+      ]
+    };
+    return content[type as keyof typeof content] || [
+      'Comprehensive analysis completed',
+      'Key insights identified',
+      'Actionable recommendations provided'
+    ];
+  };
+
   const isPaid = submission.payment_status !== 'free';
   const isPending = submission.status !== 'completed';
   const adminSummary = [
@@ -87,10 +128,13 @@ export default function ReportClient({ submission }: ReportClientProps) {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Header */}
-      <div className="bg-gray-800 py-4">
+      <div className="bg-gray-900 py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-xl font-bold">Growth Partner AI</h1>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🚀</span>
+              <span className="text-xl font-bold">Growth Partner AI</span>
+            </div>
             <button
               onClick={() => router.push('/')}
               className="text-blue-400 hover:text-blue-300"
@@ -108,9 +152,6 @@ export default function ReportClient({ submission }: ReportClientProps) {
             <h1 className="text-3xl md:text-4xl font-extrabold mb-4">
               {getReportTypeTitle(submission.report_type)}
             </h1>
-            <p className="text-lg text-gray-300 mb-6">
-              Analysis for: &quot;{submission.idea}&quot;
-            </p>
             <div className="flex items-center justify-center space-x-4 text-sm text-gray-400">
               <span>📧 {submission.email}</span>
               <span>📅 {new Date(submission.created_at).toLocaleDateString('en-CA')}</span>
@@ -214,11 +255,24 @@ export default function ReportClient({ submission }: ReportClientProps) {
             ) : (
               <div className="text-center">
                 <div className="bg-gray-700 p-8 rounded-lg mb-8">
-                  <h3 className="text-xl font-bold mb-4">🔒 Full Report Locked</h3>
+                  <h3 className="text-xl font-bold mb-4">🔒 Unlock My Full Report</h3>
                   <p className="text-gray-300 mb-6">
                     Unlock the complete analysis with detailed insights, market research, 
                     competitive analysis, and actionable recommendations.
                   </p>
+                  
+                  {/* Customized content based on report type */}
+                  <div className="mb-6">
+                    <h4 className="text-lg font-bold mb-3">Your full report includes:</h4>
+                    <div className="space-y-2">
+                      {getFullReportContent(submission.report_type).map((item, index) => (
+                        <div key={index} className="flex items-start">
+                          <span className="text-blue-400 mr-3 mt-1">•</span>
+                          <p className="text-gray-300">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <button
@@ -238,7 +292,7 @@ export default function ReportClient({ submission }: ReportClientProps) {
                 </div>
                 
                 <div className="text-sm text-gray-400">
-                  <p>💡 <strong>Pro Tip:</strong> The Founder Bundle includes all 5 report types for maximum value!</p>
+                  <p>🚀 <strong>Best Deal:</strong> Get all 5 reports for just $99 (save $46!) — the smartest move for founders.</p>
                 </div>
               </div>
             )}

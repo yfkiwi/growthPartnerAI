@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 export default function PricingPage() {
   const [loading, setLoading] = useState<string | null>(null);
@@ -26,10 +27,13 @@ export default function PricingPage() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Header */}
-      <div className="bg-gray-800 py-4">
+      <div className="bg-gray-900 py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-xl font-bold">Growth Partner AI</h1>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🚀</span>
+              <span className="text-xl font-bold">Growth Partner AI</span>
+            </div>
             <button
               onClick={() => router.push('/')}
               className="text-blue-400 hover:text-blue-300"
