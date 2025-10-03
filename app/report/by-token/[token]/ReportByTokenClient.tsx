@@ -125,6 +125,8 @@ export default function ReportByTokenClient({ submission }: ReportByTokenClientP
                       <p className="text-gray-300 whitespace-pre-wrap">{submission.summary_key_insight}</p>
                     </div>
                     
+                    {/* Market Snapshot 和 Next Step 已隐藏 */}
+                    {/* 
                     {submission?.summary_market_snapshot && (
                       <div>
                         <h3 className="text-lg font-semibold mb-2 text-blue-400">📊 Market Snapshot</h3>
@@ -138,6 +140,7 @@ export default function ReportByTokenClient({ submission }: ReportByTokenClientP
                         <p className="text-gray-300 whitespace-pre-wrap">{submission.summary_next_step}</p>
                       </div>
                     )}
+                    */}
                   </div>
                 )}
                 
